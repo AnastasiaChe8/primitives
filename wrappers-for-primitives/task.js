@@ -12,19 +12,18 @@ function calculateMortgage() {
 function calculateTotalMortgage(percent, contribution, amount, date) {
 "use strict"
 let parsed = (percent, contribution, amount, date);
-  if (typeof parsed === 'string') {
-    parseInt(parsed);
-    //переход на вычисление по формуле//
-  }
+  //if (typeof parsed === 'string') {
+  //  parseInt(parsed);
+    //переход на вычисление по формуле///}
+
   else if (typeof parsed === 'undefined'){
     console.log(`Параметр + ${parsed} + содержит неправильное значение ${parsed}`);
   } else {
-    percent /= 1200;
-    date *= 12;
+    let i = parseFloat(percent/100/12);
+    let n = parseFloat(date*12);
     let totalAmount = amount - contribution;
-     let payment = amount * (1 - Math.pow(1 + percent, -date));
-     return payment;
-    return totalAmount;
+     let payment =amount * (1 - Math.pow(1 + i, -n));
+  return totalAmount;
   }
 }
 
@@ -40,10 +39,10 @@ function sayHello() {
 
 function getGreeting(name) {
   if (typeof name === 'string') {
-    console.log("Привет, мир! Меня зовут " + name);
+    return("Привет, мир! Меня зовут " + name);
   }
   else if (typeof name === 'undefined') {
-    console.log("Привет, Мир! Меня зовут Аноним");
+    return("Привет, Мир! Меня зовут Аноним");
   }
     return getGreeting;
 }
